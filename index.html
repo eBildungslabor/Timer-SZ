@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Timer Sprechen & Zuhören</title>
+    <meta name="description" content="Ein Timer für gleichverteilte Redezeit in Gruppen. Smartphone in die Tischmitte legen und los geht's.">
+    <meta property="og:title" content="Timer Sprechen & Zuhören">
+    <meta property="og:description" content="Ein Timer für gleichverteilte Redezeit in Gruppen.">
+    <meta property="og:image" content="img/img-vorschau.svg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Setup Screen -->
+    <div id="setup-screen" class="screen active">
+        <h1>Timer<br>Sprechen &amp; Zuhören</h1>
+
+        <div class="setup-form">
+            <label for="persons">Wie viele Personen?</label>
+            <div class="button-group" id="persons-group">
+                <button type="button" data-value="2">2</button>
+                <button type="button" data-value="3">3</button>
+                <button type="button" data-value="4">4</button>
+                <button type="button" data-value="5">5</button>
+                <button type="button" data-value="6">6</button>
+            </div>
+
+            <label for="rounds">Wie viele Runden?</label>
+            <div class="button-group" id="rounds-group">
+                <button type="button" data-value="1">1</button>
+                <button type="button" data-value="2">2</button>
+                <button type="button" data-value="3">3</button>
+            </div>
+
+            <label for="minutes">Wie viel Zeit insgesamt? (Minuten)</label>
+            <input type="number" id="minutes" min="1" max="120" value="10" inputmode="numeric">
+
+            <div id="calculation-preview" class="calculation-preview"></div>
+
+            <button type="button" id="start-btn" class="primary-btn" disabled>Los geht's!</button>
+        </div>
+    </div>
+
+    <!-- Timer Screen -->
+    <div id="timer-screen" class="screen">
+        <div class="timer-nav">
+            <div id="round-tabs"></div>
+            <div id="person-tabs"></div>
+        </div>
+
+        <div class="timer-main">
+            <div class="circle-container">
+                <svg class="progress-ring" viewBox="0 0 200 200">
+                    <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
+                    <circle class="progress-ring-fill" cx="100" cy="100" r="90" />
+                </svg>
+                <div class="timer-display" id="timer-display">0:00</div>
+            </div>
+
+            <div id="timer-label" class="timer-label"></div>
+            <button type="button" id="timer-start-btn" class="primary-btn">Start</button>
+        </div>
+
+        <button type="button" id="settings-btn" class="settings-btn" title="Neue Einstellungen">⚙</button>
+    </div>
+
+    <!-- End Screen -->
+    <div id="end-screen" class="screen">
+        <div class="end-content">
+            <div class="end-icon">✓</div>
+            <h1>Danke fürs Mitmachen!</h1>
+            <button type="button" id="restart-btn" class="primary-btn">Neue Runde</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
